@@ -4,6 +4,7 @@ import JSLoadedContent from "./components/JSLoadedContent";
 import LastKeyClicked from "./components/LastKeyClicked";
 import LoadedOnViewContent from "./components/LoadedOnViewContent";
 import { headers } from 'next/headers'
+import ScrollBottomLoader from "./components/ScrollBottomLoader";
 
 export default async function Home() {
   let headersList;
@@ -32,6 +33,7 @@ export default async function Home() {
         <ClickContent />
         <LastKeyClicked />
         <Input />
+        <ScrollBottomLoader />
         <div className="w-full h-96 bg-gray-800"></div>
         <div className="w-full h-96 bg-gray-800"></div>
         <div className="w-full h-96 bg-gray-800"></div>
