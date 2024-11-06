@@ -34,7 +34,7 @@ const LoadedOnViewContent = () => {
     <div ref={ref}>
       {isVisible && (
         <div>
-          <p>This content loads only when you see it. Don't blink! 👼</p>
+          <p>This content loads only when you see it. Don&apos;t blink! 👼</p>
         </div>
       )}
     </div>
