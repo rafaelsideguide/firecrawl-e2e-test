@@ -5,6 +5,7 @@ import LastKeyClicked from "./components/LastKeyClicked";
 import LoadedOnViewContent from "./components/LoadedOnViewContent";
 import { headers } from 'next/headers'
 import ScrollBottomLoader from "./components/ScrollBottomLoader";
+import OnlyShowedOnMobile from "./components/OnlyShowedOnMobile";
 
 export default async function Home() {
   let headersList;
@@ -24,9 +25,7 @@ export default async function Home() {
           <p>Content with id #content-1</p>
         </div>
         <JSLoadedContent />
-        <div className="sm:hidden">
-          <p>This content is only visible on mobile</p>
-        </div>
+        <OnlyShowedOnMobile />
         <div>
           <p className="text-sm text-gray-500 font-mono">e2e-header-test: {e2eHeaderTest}</p>
         </div>
