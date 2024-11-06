@@ -6,6 +6,7 @@ import LoadedOnViewContent from "./components/LoadedOnViewContent";
 import { headers } from 'next/headers'
 import ScrollBottomLoader from "./components/ScrollBottomLoader";
 import OnlyShowedOnMobile from "./components/OnlyShowedOnMobile";
+import IframeFirecrawl from "./components/IframeFirecrawl";
 
 export default async function Home() {
   let headersList;
@@ -36,6 +37,7 @@ export default async function Home() {
         <div className="w-full h-96 bg-gray-800"></div>
         <div className="w-full h-96 bg-gray-800"></div>
         <div className="w-full h-96 bg-gray-800"></div>
+        <IframeFirecrawl />
         <LoadedOnViewContent />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
