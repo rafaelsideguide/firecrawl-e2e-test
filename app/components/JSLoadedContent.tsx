@@ -14,7 +14,7 @@ const JSLoadedContent = () => {
 
   return (
     <div>
-      {isContentLoaded ? <p>Content loaded after 5 seconds!</p> : <p>Loading...</p>}
+      {isContentLoaded ? <p>Content loaded after 5 seconds!</p> : <p>Loading... (it takes 5 seconds)</p>}
     </div>
   );
 };
