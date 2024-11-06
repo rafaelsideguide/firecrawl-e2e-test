@@ -5,7 +5,6 @@ export default async function Home() {
   let headersList;
   try {
     headersList = await headers();
-    console.log(headersList);
   } catch (error) {
     console.error("Error fetching headers:", error);
   }
@@ -25,8 +24,11 @@ export default async function Home() {
         </div>
         <div>
           <p className="text-sm text-gray-500 font-mono">e2e-header-test: {e2eHeaderTest}</p>
-        </div>
-      </main>
+      </div>
+      <div className="w-full h-96 bg-gray-800"></div>
+      <div className="w-full h-96 bg-gray-800"></div>
+      <div className="w-full h-96 bg-gray-800"></div>
+    </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <span>footer</span>
       </footer>
