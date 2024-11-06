@@ -25,12 +25,15 @@ const ScrollBottomLoader = () => {
   }, []);
 
   return (
-    <div ref={scrollRef} style={{
-      overflowY: 'auto',
-      height: '300px',
-      border: '1px solid #ccc',
-      backgroundColor: isBottom ? '#333' : '#000'
-    }}>
+    <div ref={scrollRef}
+      id="scroll-bottom-loader"
+      style={{
+        overflowY: 'auto',
+        height: '300px',
+        border: '1px solid #ccc',
+        backgroundColor: isBottom ? '#333' : '#000'
+      }}
+    >
       <div style={{ height: '1200px' }}>
         <p>Scroll down to load content at the bottom.</p>
         {isBottom && (
