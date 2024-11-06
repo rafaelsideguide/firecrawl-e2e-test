@@ -10,7 +10,7 @@ const ClickContent = () => {
   };
 
   return (
-    <div onClick={handleClick} style={{ cursor: 'pointer', border: '1px solid #333', padding: '10px' }}>
+    <div id="click-me" onClick={handleClick} style={{ cursor: 'pointer', border: '1px solid #333', padding: '10px' }}>
       <p>{text}</p>
     </div>
   );
