@@ -8,6 +8,9 @@ import ScrollBottomLoader from "../components/ScrollBottomLoader";
 import OnlyShowedOnMobile from "../components/OnlyShowedOnMobile";
 import IframeFirecrawl from "../components/IframeFirecrawl";
 
+// Add dynamic configuration
+export const dynamic = 'force-dynamic'
+
 export default async function ActionsPage() {
   let headersList;
   try {

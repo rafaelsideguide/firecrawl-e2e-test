@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 // Reuse the same random generation logic
@@ -92,7 +92,7 @@ const getRandomDescriptionPerPage = () => {
   return { scrapedPages };
 };
 
-export default function NextPrevParamsPage() {
+function NextPrevContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [items, setItems] = useState<Array<ReturnType<typeof generateItems>[0]>>([]);
@@ -101,7 +101,6 @@ export default function NextPrevParamsPage() {
   const [hasNextPage, setHasNextPage] = useState(false);
   const [hasPrevPage, setHasPrevPage] = useState(false);
   
-  // Get current page from URL params or default to 1
   const currentPage = Number(searchParams.get('page')) || 1;
 
   // Fetch data for current page
@@ -209,5 +208,18 @@ export default function NextPrevParamsPage() {
         Current URL parameter: page={currentPage}
       </div>
     </main>
+  );
+}
+
+// Main page component with Suspense
+export default function NextPrevParamsPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-gray-500">Loading...</div>
+      </div>
+    }>
+      <NextPrevContent />
+    </Suspense>
   );
 } 

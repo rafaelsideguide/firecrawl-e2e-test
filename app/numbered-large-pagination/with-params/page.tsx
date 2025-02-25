@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import NumberedPagination from '../../components/NumberedPagination';
 
@@ -96,14 +96,13 @@ const getRandomDescriptionPerPage = () => {
   return { scrapedPages };
 };
 
-export default function LargePaginationParamsPage() {
+function NumberedPaginationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [items, setItems] = useState<Array<ReturnType<typeof generateItems>[0]>>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Get current page from URL params or default to 1
   const currentPage = Number(searchParams.get('page')) || 1;
 
   // Fetch data for current page
@@ -190,5 +189,18 @@ export default function LargePaginationParamsPage() {
         Current URL parameter: page={currentPage}
       </div>
     </main>
+  );
+}
+
+// Main page component with Suspense
+export default function LargePaginationParamsPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-gray-500">Loading...</div>
+      </div>
+    }>
+      <NumberedPaginationContent />
+    </Suspense>
   );
 } 

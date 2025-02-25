@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from 'react';
 
+export const dynamic = 'force-dynamic'
+
 // Reuse the same random generation logic
 const createRandom = (seed: number) => {
   return () => {

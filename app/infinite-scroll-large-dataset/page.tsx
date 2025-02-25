@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 
 // Reuse the same random generation logic
 const createRandom = (seed: number) => {
@@ -90,14 +90,13 @@ const getRandomDescriptionPerPage = () => {
   return { scrapedPages };
 };
 
-export default function InfiniteScrollLargeDatasetPage() {
+function InfiniteScrollContent() {
   const [currentPage, setCurrentPage] = useState(1);
   const [items, setItems] = useState<Array<ReturnType<typeof generateItems>[0]>>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(true);
   
-  // Reference to the sentinel element for infinite scroll
   const observerTarget = useRef<HTMLDivElement>(null);
 
   // Load more items when intersection observer triggers
@@ -200,5 +199,18 @@ export default function InfiniteScrollLargeDatasetPage() {
         </div>
       )}
     </main>
+  );
+}
+
+// Main page component with Suspense
+export default function InfiniteScrollLargeDatasetPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-gray-500">Loading...</div>
+      </div>
+    }>
+      <InfiniteScrollContent />
+    </Suspense>
   );
 } 
