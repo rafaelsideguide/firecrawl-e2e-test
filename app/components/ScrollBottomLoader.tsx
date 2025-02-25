@@ -15,11 +15,13 @@ const ScrollBottomLoader = () => {
   };
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.addEventListener('scroll', handleScroll);
+    const currentElement = scrollRef.current;
+    
+    if (currentElement) {
+      currentElement.addEventListener('scroll', handleScroll);
 
       return () => {
-        scrollRef.current?.removeEventListener('scroll', handleScroll);
+        currentElement.removeEventListener('scroll', handleScroll);
       };
     }
   }, []);

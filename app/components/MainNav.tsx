@@ -11,6 +11,71 @@ type NavItem = {
   items: (NavItem)[];
 };
 
+const navItems: NavItem[] = [
+  { href: '/actions', label: 'Actions' },
+  {
+    label: 'Pagination',
+    items: [
+      {
+        label: 'Numbered Pagination',
+        items: [
+          { href: '/numbered-pagination', label: 'DOM-based' },
+          { href: '/numbered-pagination/with-params', label: 'URL Params' },
+        ]
+      },
+      {
+        label: 'Large Dataset Numbered Pagination',
+        items: [
+          { href: '/numbered-large-pagination', label: 'Large Dataset DOM-based' },
+          { href: '/numbered-large-pagination/with-params', label: 'Large Dataset URL Params' },
+        ]
+      },
+      {
+        label: 'Next/Previous',
+        items: [
+          { href: '/next-prev', label: 'DOM-based' },
+          { href: '/next-prev/with-params', label: 'URL Params' },
+        ]
+      },
+      {
+        label: 'Next/Previous Large Dataset',
+        items: [
+          { href: '/next-prev-large-dataset', label: 'DOM-based' },
+          { href: '/next-prev-large-dataset/with-params', label: 'URL Params' },
+        ]
+      },
+      {
+        label: 'Load More',
+        items: [
+          { href: '/load-more', label: 'DOM-based' },
+          { href: '/load-more/with-params', label: 'URL Params' },
+        ]
+      },
+      {
+        label: 'Load More Large Dataset',
+        items: [
+          { href: '/load-more-large-dataset', label: 'DOM-based' },
+          { href: '/load-more-large-dataset/with-params', label: 'URL Params' },
+        ]
+      },
+      {
+        label: 'Infinite Scroll',
+        items: [
+          { href: '/infinite-scroll', label: 'DOM-based' },
+          { href: '/infinite-scroll/with-params', label: 'URL Params' },
+        ]
+      },
+      {
+        label: 'Infinite Scroll Large Dataset',
+        items: [
+          { href: '/infinite-scroll-large-dataset', label: 'DOM-based' },
+          { href: '/infinite-scroll-large-dataset/with-params', label: 'URL Params' },
+        ]
+      }
+    ]
+  },
+];
+
 export default function MainNav() {
   const pathname = usePathname();
   const [openDropdowns, setOpenDropdowns] = useState<string[]>([]);
@@ -54,71 +119,6 @@ export default function MainNav() {
       });
     }
   }, [pathname]);
-
-  const navItems: NavItem[] = [
-    { href: '/actions', label: 'Actions' },
-    {
-      label: 'Pagination',
-      items: [
-        {
-          label: 'Numbered Pagination',
-          items: [
-            { href: '/numbered-pagination', label: 'DOM-based' },
-            { href: '/numbered-pagination/with-params', label: 'URL Params' },
-          ]
-        },
-        {
-          label: 'Large Dataset Numbered Pagination',
-          items: [
-            { href: '/numbered-large-pagination', label: 'Large Dataset DOM-based' },
-            { href: '/numbered-large-pagination/with-params', label: 'Large Dataset URL Params' },
-          ]
-        },
-        {
-          label: 'Next/Previous',
-          items: [
-            { href: '/next-prev', label: 'DOM-based' },
-            { href: '/next-prev/with-params', label: 'URL Params' },
-          ]
-        },
-        {
-          label: 'Next/Previous Large Dataset',
-          items: [
-            { href: '/next-prev-large-dataset', label: 'DOM-based' },
-            { href: '/next-prev-large-dataset/with-params', label: 'URL Params' },
-          ]
-        },
-        {
-          label: 'Load More',
-          items: [
-            { href: '/load-more', label: 'DOM-based' },
-            { href: '/load-more/with-params', label: 'URL Params' },
-          ]
-        },
-        {
-          label: 'Load More Large Dataset',
-          items: [
-            { href: '/load-more-large-dataset', label: 'DOM-based' },
-            { href: '/load-more-large-dataset/with-params', label: 'URL Params' },
-          ]
-        },
-        {
-          label: 'Infinite Scroll',
-          items: [
-            { href: '/infinite-scroll', label: 'DOM-based' },
-            { href: '/infinite-scroll/with-params', label: 'URL Params' },
-          ]
-        },
-        {
-          label: 'Infinite Scroll Large Dataset',
-          items: [
-            { href: '/infinite-scroll-large-dataset', label: 'DOM-based' },
-            { href: '/infinite-scroll-large-dataset/with-params', label: 'URL Params' },
-          ]
-        }
-      ]
-    },
-  ];
 
   const toggleDropdown = (label: string) => {
     setOpenDropdowns(prev => {
